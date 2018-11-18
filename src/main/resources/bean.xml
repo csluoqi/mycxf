@@ -8,12 +8,26 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
-  <!--  <import resource="classpath:META-INF/cxf/cxf.xml" /> 
+   <!--cxf 3.x不用配置 -->
+    <!--  <import resource="classpath:META-INF/cxf/cxf.xml" /> 
    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />  -->
    <context:annotation-config/>
-   <jaxws:endpoint 
+   	<context:component-scan base-package="com.yinhai" use-default-filters="false">
+		<!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/> -->
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+	</context:component-scan>
+<!--    <jaxws:endpoint 
      id="orderWS" 
      implementor="com.yinhai.mycxf.ws.impl.OrderWSImpl" 
-     address="/orderWS" />
+     address="/orderWS" /> -->
+     
+     
+     <!-- <http-conf:conduit
+			name="{http://impl.ws.mycxf.yinhai.com/}rbscx">
+		<http-conf:client ConnectionTimeout="10000" ReceiveTimeout="300000"/>
+	</http-conf:conduit> -->
+
+	<jaxws:endpoint implementor="#orderWS" address="/orderWS" />
 </beans>
