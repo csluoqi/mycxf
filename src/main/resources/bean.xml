@@ -29,5 +29,9 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		<http-conf:client ConnectionTimeout="10000" ReceiveTimeout="300000"/>
 	</http-conf:conduit> -->
 
-	<jaxws:endpoint implementor="#orderWS" address="/orderWS" />
+	<jaxws:endpoint implementor="#orderWS" address="/orderWS" >
+		<jaxws:inInterceptors>
+			<bean class="com.yinhai.mycxf.interceptor.CheckUserInterceptor"></bean>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
 </beans>

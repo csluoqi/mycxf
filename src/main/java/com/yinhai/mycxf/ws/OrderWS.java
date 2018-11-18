@@ -5,6 +5,7 @@ import javax.jws.WebService;
 
 import com.yinhai.mycxf.bean.Order;
 
+//@WebService
 @WebService
 public interface OrderWS {
     

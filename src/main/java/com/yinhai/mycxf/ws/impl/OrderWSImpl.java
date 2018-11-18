@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import com.yinhai.mycxf.bean.Order;
 import com.yinhai.mycxf.ws.OrderWS;
 
-@WebService
+@WebService(endpointInterface = "com.yinhai.mycxf.ws.OrderWS",
+targetNamespace = "http://ws.mycxf.yinhai.com/",
+serviceName="orderWS") 
 @Component("orderWS")
 public class OrderWSImpl implements OrderWS{
 
