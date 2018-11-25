@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:jaxws="http://cxf.apache.org/jaxws"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+ 
+
+
+<jaxws:client id="orderClient" serviceClass = "com.yinhai.mycxf.ws.OrderWS" 
+			  address = "http://127.0.0.1:8080/mycxf/orderWS">
+			  
+			  	<jaxws:outInterceptors>
+			  		<bean class="com.yinhai.mycxf.AddUserClientInterceptor">
+			  			<constructor-arg name="name" value ="xfzhang" />
+			  			<constructor-arg name="password" value ="123456" />
+			  		</bean>
+			  </jaxws:outInterceptors> 
+</jaxws:client>
+		
+</beans>
