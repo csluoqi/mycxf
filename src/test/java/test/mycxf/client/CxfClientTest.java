@@ -9,7 +9,7 @@ import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
  * @author lq
  * 创建时间 2018/11/18 22:32
  **/
-public class mycxf {
+public class CxfClientTest {
     public static void main(String[] args) throws Exception {
         JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
         //wsdl地址
